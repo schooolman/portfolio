@@ -816,31 +816,31 @@
 		white-space: nowrap;
 		transition: transform 100ms ease-in-out;
 
-		&.learn-more {
-			&:after {
-				content: "";
-				height: 0;
-				width: 0;
-				position: absolute;
-				display: inline-block;
-				border-left: 20px solid $brightgreen;
-				border-top: 35px solid transparent;
-				transform: translate(26px, -2px);
-				// border-bottom: 5px solid transparent;
-			}
+		// &.learn-more {
+		// 	&:after {
+		// 		content: "";
+		// 		height: 0;
+		// 		width: 0;
+		// 		position: absolute;
+		// 		display: inline-block;
+		// 		border-left: 20px solid $brightgreen;
+		// 		border-top: 35px solid transparent;
+		// 		transform: translate(26px, -2px);
+		// 		// border-bottom: 5px solid transparent;
+		// 	}
 	
-			&:before {
-				content: "";
-				height: 0;
-				width: 0;
-				position: absolute;
-				display: inline-block;
-				border-right: 7px solid $brightgreen;
-				border-bottom: 37px solid transparent;
-				transform: translate(-32px, -3px);
-				// border-bottom: 5px solid transparent;
-			}
-		}
+		// 	&:before {
+		// 		content: "";
+		// 		height: 0;
+		// 		width: 0;
+		// 		position: absolute;
+		// 		display: inline-block;
+		// 		border-right: 7px solid $brightgreen;
+		// 		border-bottom: 37px solid transparent;
+		// 		transform: translate(-32px, -3px);
+		// 		// border-bottom: 5px solid transparent;
+		// 	}
+		// }
 		
 
 		&:hover {

@@ -70,23 +70,31 @@ class HomeIndex extends React.Component {
 
                         <Modal show={this.state.show} handleClose={this.hideModal}>
                             <h3>More about Jake:</h3>
-                            <p>Need to fill out a more thoroug about me...</p>
+                            <p>Need to fill out a more thorough about me...</p>
                         </Modal>
                     </section>
 
                     <section id="two">
                         <h2>Recent Work</h2>
+                        <p>I will be updating this with work as I have time. Need to figure out the best structure for this.</p>
 
+                        <p>Most of my work in the past year has been within the Adobe Experience Manager(AEM) CMS. Working with many of the standard web technologies that are often associated with AEM, Javascript, HTML, CSS being the very basic pieces.</p>
+
+                        <p>I have worked at least some with most of the main front end frameworks, and regularly use and configure front-end build tools like grunt, gulp, webpack. Sass makes everyones lives better.</p>
+
+                        <p>I will be updating this section very soon to have the most recent work I've done.</p>
+
+{/* 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
                             source,
                             thumbnail,
                             caption,
                             description
-                        }))} />
+                        }))} /> */}
 
-                        <ul className="actions">
+                        {/* <ul className="actions">
                             <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul>
+                        </ul> */}
                     </section>
 
                     <section id="three">
@@ -101,12 +109,12 @@ class HomeIndex extends React.Component {
                                         <div className="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
                                         <div className="6u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
                                         <div className="12u"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-                                        <input type="submit" value="Send"></input>
+                                        <ul className="actions">
+                                            <li><input type="submit" value="Send Message" /></li>
+                                        </ul>
                                     </div>
                                 </form>
-                                <ul className="actions">
-                                    <li><input type="submit" value="Send Message" /></li>
-                                </ul>
+                                
                             </div>
                             <div className="4u 12u$(small)">
                                 <ul className="labeled-icons">
