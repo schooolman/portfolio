@@ -1,3 +1,3 @@
-# Jake Schoolmeesters Portfolio
+# Personal Site
 
 This is the repo for my personal portfolio.

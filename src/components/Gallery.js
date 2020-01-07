@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Carousel, { Modal, ModalGateway } from "react-images";
+// import Carousel, { Modal, ModalGateway } from "react-images";
+import Modal from '../components/Modal'
 
 class Gallery extends Component {
+    state = { showModal: false };
+
     constructor () {
         super();
 
         this.state = {
             lightboxIsOpen: false,
-            selectedIndex: 0
+            selectedIndex: 0,
         };
         
         this.toggleLightbox = this.toggleLightbox.bind(this);
+        this.setDescription = this.toggleLightbox.bind(this);
     }
     toggleLightbox(selectedIndex) {
         this.setState(state => ({
@@ -19,19 +23,43 @@ class Gallery extends Component {
             selectedIndex
         }));
     }
-    renderGallery (images) {
+
+    setDescription = () => {
+        this.setState({ 
+            description: 'description',
+            currentCompany: 'company'
+     });
+    }
+
+    showModal = () => {
+        this.setState({ showModal: true });
+    };
+
+    hideModal = () => {
+        this.setState({ showModal: false });
+    };
+
+    renderModalDescription(descriptions, i) {
+        this.setState({ description: descriptions[i].description})
+        this.setState({ currentCompany: descriptions[i].company})
+    }
+
+    renderGallery (images, descriptions) {
+        
         if (!images) return;
 
         const gallery = images.map((obj, i) => {
             return (
-                <article className="6u 12u$(xsmall) work-item" key={i}>
+                <article
+                    className="6u 12u$(xsmall) work-item" key={i}
+                    onClick={e => {
+                        e.preventDefault();
+                        this.showModal();
+                        this.renderModalDescription(descriptions, i);
+                    }}>
                     <a
                         className="image fit thumb"
-                        href={obj.source}
-                        onClick={e => {
-                            e.preventDefault();
-                            this.toggleLightbox(i);
-                        }}
+                        href="#"
                     >
                         <img src={obj.thumbnail} />
                     </a>
@@ -51,17 +79,20 @@ class Gallery extends Component {
     render () {
         const { images } = this.props;
         const { selectedIndex, lightboxIsOpen } = this.state;
+        const { descriptions } = this.props;
+        let currentDescription = this.state.description;
+        let companyName = this.state.currentCompany;
+
 
         return (
             <div>
-                {this.renderGallery(images)}
-                <ModalGateway>
-                    {lightboxIsOpen && (
-                        <Modal onClose={this.toggleLightbox}>
-                            <Carousel currentIndex={selectedIndex} views={images} />
-                        </Modal>
-                    )}
-                </ModalGateway>
+                {this.renderGallery(images, descriptions)}
+                {/* {this.renderModal(descriptions)} */}
+                <Modal show={this.state.showModal} handleClose={this.hideModal}>
+                    <h1>Description: {companyName}</h1>
+                    <p>{currentDescription}</p>
+
+                </Modal>
             </div>
         );
     }
@@ -69,7 +100,8 @@ class Gallery extends Component {
 
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
-    images: PropTypes.array
+    images: PropTypes.array,
+    descriptions: PropTypes.array
 };
 
 export default Gallery;
