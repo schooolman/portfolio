@@ -21,6 +21,12 @@ import full04 from '../assets/images/fulls/04.jpg'
 import full05 from '../assets/images/fulls/05.jpg'
 import full06 from '../assets/images/fulls/06.jpg'
 
+import scrnShot1 from '../assets/images/portfolio-hfmaSCRN.png'
+import scrnShot2 from '../assets/images/portfolio-uhcSCRN.png'
+import scrnShot3 from '../assets/images/portfolio-eatonSCRN.png'
+import scrnShot4 from '../assets/images/portfolio-ihgSCRN.png'
+import scrnShot5 from '../assets/images/portfolio-seSCRN.png'
+
 const DEFAULT_IMAGES = [
     { id: '1', source: full01, thumbnail: thumb01, caption: 'HFMA', description: 'Healthcare Financial Management Association, a large scale Adobe Experience Manager project.'},
     { id: '2', source: full02, thumbnail: thumb02, caption: 'UnitedHealthcare', description: 'UnitedHealthcare, health insurance company, site built on AEM 6.4'},
@@ -34,31 +40,36 @@ const modal_objects = [
         id: '1',
         company: 'HFMA',
         description: 'A complete redesign and replatforming of the Healthcare Financial Management Association website. In particular a lot of the work that I did was with helping to build out their community and forum functionality.',
-        website: 'www.hfma.org'
+        website: 'www.hfma.org',
+        screenShot: scrnShot1
     },
     {
         id: '2',
         company: 'UnitedHealthCare',
         description: 'This project was built on AEM 6.4, and was a large scale push towards accessibility for the company.',
-        website: 'www.hfma.org'
+        website: 'www.hfma.org',
+        screenShot: scrnShot2
     },
     {
         id: '3',
         company: 'Eaton',
         description: 'This was built on AEM 6.2, a lot of the work that I did for this was working on proofing the layouts and build for multiple languages including Left to Right languages.',
-        website: 'www.eaton.com'
+        website: 'www.eaton.com',
+        screenShot: scrnShot3
     },
     {
         id: '4',
         company: 'IHG',
         description: 'Worked on this project, built on AEM 6.3, was the roll out of their new site design and also a platform upgrade. Started with the military site, and will be rolled out to all of their different properties.',
-        website: 'www.ihg.com'
+        website: 'www.ihg.com',
+        screenShot: scrnShot4
     },
     {
         id: '5',
         company: 'SportsEngine',
         description: 'I helped to develop, and maintain the main marketing website for SportsEngine.com',
-        website: 'www.sportsengine.com'
+        website: 'www.sportsengine.com',
+        screenShot: scrnShot5
     }
 ]
 
@@ -98,7 +109,7 @@ class HomeIndex extends React.Component {
                             </span>
                         </header>
                         <p>Originally hailing from Minneapolis, Minnesota, in the Northeast neighborhood also known as the Arts District. I have had a bit of a meandering path to end up where I am now. After earning my undergrad in Technical Communications I then went Miami Ad School to study Art Direction. At some point I came to the realization I wanted to actually build the websites I had been designing. I went through Prime Academy, a web development boot camp, and have been working as a Front-End Developer since 2015.</p>
-                        <button type="button" onClick={this.showModal} className="button learn-more">Learn More</button>
+                        {/* <button type="button" onClick={this.showModal} className="button learn-more">Learn More</button> */}
 
                         <Modal show={this.state.show} handleClose={this.hideModal}>
                             <h3>More about Jake:</h3>
@@ -107,23 +118,21 @@ class HomeIndex extends React.Component {
                     </section>
 
                     <section id="two">
-                        <h2>Recent Work</h2>
+                        <h2>Recent Projects</h2>
 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
                             source,
                             thumbnail,
                             caption,
                             description
-                        }))} descriptions={modal_objects.map(({id, company, description,website}) => ({
+                        }))} descriptions={modal_objects.map(({id, company, description,website,screenShot}) => ({
                             id,
                             company,
                             description,
-                            website
+                            website,
+                            screenShot
                         }))} />
 
-                        <ul className="actions">
-                            <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul>
                     </section>
 
                     <section id="three">
