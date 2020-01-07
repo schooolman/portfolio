@@ -8,10 +8,10 @@ import Gallery from '../components/Gallery'
 import Modal from '../components/Modal'
 
 import thumb01 from '../assets/images/thumbs/01.png'
-import thumb02 from '../assets/images/thumbs/02.jpg'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
+import thumb02 from '../assets/images/thumbs/uhc.png'
+import thumb03 from '../assets/images/thumbs/eaton.png'
+import thumb04 from '../assets/images/thumbs/ihg.png'
+import thumb05 from '../assets/images/thumbs/se.svg'
 import thumb06 from '../assets/images/thumbs/06.jpg'
 
 import full01 from '../assets/images/fulls/01.jpg'
@@ -23,12 +23,44 @@ import full06 from '../assets/images/fulls/06.jpg'
 
 const DEFAULT_IMAGES = [
     { id: '1', source: full01, thumbnail: thumb01, caption: 'HFMA', description: 'Healthcare Financial Management Association, a large scale Adobe Experience Manager project.'},
-    { id: '2', source: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '3', source: full03, thumbnail: thumb03, caption: 'Photo 3', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '4', source: full04, thumbnail: thumb04, caption: 'Photo 4', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '5', source: full05, thumbnail: thumb05, caption: 'Photo 5', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '6', source: full06, thumbnail: thumb06, caption: 'Photo 6', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
+    { id: '2', source: full02, thumbnail: thumb02, caption: 'UnitedHealthcare', description: 'UnitedHealthcare, health insurance company, site built on AEM 6.4'},
+    { id: '3', source: full03, thumbnail: thumb03, caption: 'Eaton', description: 'Eaton is a power management company providing energy efficient solutions.'},
+    { id: '4', source: full04, thumbnail: thumb04, caption: 'IHG', description: 'Intercontinental Hotel Group.'},
+    { id: '5', source: full05, thumbnail: thumb05, caption: 'SportsEngine', description: 'an NBC Sports Group company, is the leading provider of Sport Relationship Management (SRM) software.'},
 ];
+
+const modal_objects = [
+    {
+        id: '1',
+        company: 'HFMA',
+        description: 'A complete redesign and replatforming of the Healthcare Financial Management Association website. In particular a lot of the work that I did was with helping to build out their community and forum functionality.',
+        website: 'www.hfma.org'
+    },
+    {
+        id: '2',
+        company: 'UnitedHealthCare',
+        description: 'This project was built on AEM 6.4, and was a large scale push towards accessibility for the company.',
+        website: 'www.hfma.org'
+    },
+    {
+        id: '3',
+        company: 'Eaton',
+        description: 'This was built on AEM 6.2, a lot of the work that I did for this was working on proofing the layouts and build for multiple languages including Left to Right languages.',
+        website: 'www.eaton.com'
+    },
+    {
+        id: '4',
+        company: 'IHG',
+        description: 'Worked on this project, built on AEM 6.3, was the roll out of their new site design and also a platform upgrade. Started with the military site, and will be rolled out to all of their different properties.',
+        website: 'www.ihg.com'
+    },
+    {
+        id: '5',
+        company: 'SportsEngine',
+        description: 'I helped to develop, and maintain the main marketing website for SportsEngine.com',
+        website: 'www.sportsengine.com'
+    }
+]
 
 class HomeIndex extends React.Component {
     
@@ -70,31 +102,28 @@ class HomeIndex extends React.Component {
 
                         <Modal show={this.state.show} handleClose={this.hideModal}>
                             <h3>More about Jake:</h3>
-                            <p>Need to fill out a more thorough about me...</p>
+                            <p>Need to fill out a more thoroug about me...</p>
                         </Modal>
                     </section>
 
                     <section id="two">
                         <h2>Recent Work</h2>
-                        <p>I will be updating this with work as I have time. Need to figure out the best structure for this.</p>
 
-                        <p>Most of my work in the past year has been within the Adobe Experience Manager(AEM) CMS. Working with many of the standard web technologies that are often associated with AEM, Javascript, HTML, CSS being the very basic pieces.</p>
-
-                        <p>I have worked at least some with most of the main front end frameworks, and regularly use and configure front-end build tools like grunt, gulp, webpack. Sass makes everyones lives better.</p>
-
-                        <p>I will be updating this section very soon to have the most recent work I've done.</p>
-
-{/* 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
                             source,
                             thumbnail,
                             caption,
                             description
-                        }))} /> */}
+                        }))} descriptions={modal_objects.map(({id, company, description,website}) => ({
+                            id,
+                            company,
+                            description,
+                            website
+                        }))} />
 
-                        {/* <ul className="actions">
+                        <ul className="actions">
                             <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul> */}
+                        </ul>
                     </section>
 
                     <section id="three">
@@ -109,12 +138,9 @@ class HomeIndex extends React.Component {
                                         <div className="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
                                         <div className="6u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
                                         <div className="12u"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-                                        <ul className="actions">
-                                            <li><input type="submit" value="Send Message" /></li>
-                                        </ul>
+                                        <input className="button learn-more" type="submit" value="Send"></input>
                                     </div>
                                 </form>
-                                
                             </div>
                             <div className="4u 12u$(small)">
                                 <ul className="labeled-icons">

@@ -1,10 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Jake Schoolmeesters Work Portfolio",
-    author: "Jake Schoolmeesters",
-    description: "Work examples for Jacob Schoolmeesters"
+    title: "Gatsby Starter - Strata by HTML5 UP",
+    author: "Hunter Chang",
+    description: "A Gatsby.js Starter based on Strata by HTML5 UP"
   },
-  pathPrefix: "/portfolio",
   plugins: [
     'gatsby-plugin-react-helmet',
     {
