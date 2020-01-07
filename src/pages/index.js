@@ -21,11 +21,11 @@ import full04 from '../assets/images/fulls/04.jpg'
 import full05 from '../assets/images/fulls/05.jpg'
 import full06 from '../assets/images/fulls/06.jpg'
 
-import scrnShot1 from '../assets/images/_portfolio-hfmaSCRN.png'
-import scrnShot2 from '../assets/images/_portfolio-uhcSCRN.png'
-import scrnShot3 from '../assets/images/_portfolio-eatonSCRN.png'
-import scrnShot4 from '../assets/images/_portfolio-ihgSCRN.png'
-import scrnShot5 from '../assets/images/_portfolio-seSCRN.png'
+import scrnShot1 from '../assets/images/portfolio-hfmaSCRN.png'
+import scrnShot2 from '../assets/images/portfolio-uhcSCRN.png'
+import scrnShot3 from '../assets/images/portfolio-eatonSCRN.png'
+import scrnShot4 from '../assets/images/portfolio-ihgSCRN.png'
+import scrnShot5 from '../assets/images/portfolio-seSCRN.png'
 
 const DEFAULT_IMAGES = [
     { id: '1', source: full01, thumbnail: thumb01, caption: 'HFMA', description: 'Healthcare Financial Management Association, a large scale Adobe Experience Manager project.'},
