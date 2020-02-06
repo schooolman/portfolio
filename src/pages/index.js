@@ -122,7 +122,7 @@ class HomeIndex extends React.Component {
                     </section>
 
                     <section id="two">
-                        <h2>Recent Work</h2>
+                        <h2>Recent Projects</h2>
 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
                             source,
@@ -137,9 +137,6 @@ class HomeIndex extends React.Component {
                             screenShot
                         }))} />
 
-                        <ul className="actions">
-                            <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul>
                     </section>
 
                     <section id="three">

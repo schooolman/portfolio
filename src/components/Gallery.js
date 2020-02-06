@@ -87,7 +87,6 @@ class Gallery extends Component {
         let screenShot = this.state.screenShot;
         console.log(screenShot)
 
-
         return (
             <div>
                 {this.renderGallery(images, descriptions)}
