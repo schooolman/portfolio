@@ -6,14 +6,14 @@ import Modal from '../components/Modal'
 class Gallery extends Component {
     state = { showModal: false };
 
-    constructor () {
+    constructor() {
         super();
 
         this.state = {
             lightboxIsOpen: false,
             selectedIndex: 0,
         };
-        
+
         this.toggleLightbox = this.toggleLightbox.bind(this);
         this.setDescription = this.toggleLightbox.bind(this);
     }
@@ -25,10 +25,11 @@ class Gallery extends Component {
     }
 
     setDescription = () => {
-        this.setState({ 
+        this.setState({
             description: 'description',
-            currentCompany: 'company'
-     });
+            currentCompany: 'company',
+            screenShot: 'screenshot'
+        });
     }
 
     showModal = () => {
@@ -40,12 +41,13 @@ class Gallery extends Component {
     };
 
     renderModalDescription(descriptions, i) {
-        this.setState({ description: descriptions[i].description})
-        this.setState({ currentCompany: descriptions[i].company})
+        this.setState({ description: descriptions[i].description })
+        this.setState({ currentCompany: descriptions[i].company })
+        this.setState({ screenShot: descriptions[i].screenShot })
     }
 
-    renderGallery (images, descriptions) {
-        
+    renderGallery(images, descriptions) {
+
         if (!images) return;
 
         const gallery = images.map((obj, i) => {
@@ -76,12 +78,14 @@ class Gallery extends Component {
             </div>
         );
     }
-    render () {
+    render() {
         const { images } = this.props;
         const { selectedIndex, lightboxIsOpen } = this.state;
         const { descriptions } = this.props;
         let currentDescription = this.state.description;
         let companyName = this.state.currentCompany;
+        let screenShot = this.state.screenShot;
+        console.log(screenShot)
 
 
         return (
@@ -90,6 +94,9 @@ class Gallery extends Component {
                 {/* {this.renderModal(descriptions)} */}
                 <Modal show={this.state.showModal} handleClose={this.hideModal}>
                     <h1>Description: {companyName}</h1>
+                    <div className="modal-image-container">
+                        <img className="modal-image" src={screenShot} />
+                    </div>
                     <p>{currentDescription}</p>
 
                 </Modal>
